@@ -27,5 +27,5 @@ for msa in "${msas[@]}"
 do
     name=$(echo $msa | sed 's/.fasta//g')
     perl "scripts/reformat.pl" -v 0 -r fas a3m $input$msa $input$name".a3m"
-#    colabfold_batch  --amber --num-recycle 3 --num-relax 5 --num-models 5 --use-gpu-relax $input$name".a3m" $output$name
+    colabfold_batch  --amber --num-recycle 3 --num-relax 5 --num-models 5 --use-gpu-relax $input$name".a3m" $output$name
 done
