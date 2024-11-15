@@ -4,7 +4,7 @@ Code for clustering MSA representations to drive AF2 predictions toward alternat
 **Step 1**
 - Requirements: 
     - localcolabfold 
-    - TO BE DONE!!! env with: python>3, perl, fair-esm, scikit-learn
+    - TO BE DONE!!! env with: python>3, perl, fair-esm, scikit-learn, pandas, Bio
 
 - Exectution: 
     - sbatch pipeline/1_full_af.sh name_id sequence

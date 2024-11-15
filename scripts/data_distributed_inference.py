@@ -15,6 +15,7 @@ import argparse
 import math
 import csv
 
+
 torch.cuda.empty_cache()
 torch.set_grad_enabled(False)
 
@@ -161,7 +162,7 @@ def prepare_inference(gpu, args):
                 msa = msa_transformer.forward(msa_batch_tokens, repr_layers=[12], return_contacts=True)
                 msa_rep = msa['representations'][12].cpu()
                
-                msa_rep_name = os.path.join(resdir,"rep/"+name+".npy")
+                msa_rep_name = os.path.join(resdir,"reps/"+name+".npy")
                 msa_rep_np = msa_rep.numpy() 
                 np.save(msa_rep_name,  msa_rep_np)
                 

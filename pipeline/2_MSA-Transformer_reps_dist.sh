@@ -10,7 +10,8 @@
 #SBATCH --mem-per-cpu=2g
 #SBATCH --time=12:00:00
 
-source /orfeo/scratch/area/cuturellof/basic/bin/activate
+#source /orfeo/scratch/area/cuturellof/basic/bin/activate
+source /u/area/vpiomponi/scratch/env_dgx/bin/activate
 
 name=$1
 
@@ -20,6 +21,6 @@ mkdir -p $output
 
 address=$(ip a s | grep -o '10\.128\.6\.[0-9]*' | grep -F -v '.255')
 
-python scripts/data_distributed_inference.py -idir=$input -rdir=$output -n 1 -nr 0 -ip=$address
+python scripts/data_distributed_inference.py -idir=$input -rdir=$output -n 1 -nr 0 -ip=$address 
 
-python scripts/distances.py $name
+python scripts/distances.py $name 

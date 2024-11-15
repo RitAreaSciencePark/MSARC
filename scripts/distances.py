@@ -10,12 +10,12 @@ out_dir = name + '/reps_MSATransformer/'
 
 def collect_reps_ids(out_dir):
     
-    msa_list = os.listdir(out_dir + 'rep/')
+    msa_list = os.listdir(out_dir + 'reps/')
     alls = []
     idxs = []
     for i, msa_file in enumerate(msa_list):
 
-        msa = np.load(out_dir + 'rep/' + msa_file)[0]
+        msa = np.load(out_dir + 'reps/' + msa_file)[0]
         ids = np.load(out_dir + 'ids/' +  msa_file)
 
         if i == 0:
