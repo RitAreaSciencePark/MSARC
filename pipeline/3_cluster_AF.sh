@@ -25,7 +25,7 @@ mkdir -p $output
 msas=($(ls $input | grep fasta))
 for msa in "${msas[@]}"
 do
-    perl "scripts/reformat.pl" -v 0 -r fas a3m $input$msa $input$msa".a3m"
     name=$(echo $msa | sed 's/.fasta//g')
-    colabfold_batch  --amber --num-recycle 3 --num-relax 5 --num-models 5 --use-gpu-relax $input$msa".a3m" $output$name
+    perl "scripts/reformat.pl" -v 0 -r fas a3m $input$msa $input$name".a3m"
+#    colabfold_batch  --amber --num-recycle 3 --num-relax 5 --num-models 5 --use-gpu-relax $input$name".a3m" $output$name
 done
