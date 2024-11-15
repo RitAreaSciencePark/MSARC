@@ -4,12 +4,12 @@ Code for clustering MSA representations to drive AF2 predictions toward alternat
 **Step 1**
 - Requirements: 
     - localcolabfold 
-    - TO BE DONE!!! env with: python>3, perl, fair-esm, scikit-learn, pandas, Bio
+    - virtual env with: python>3, perl, fair-esm, scikit-learn, pandas, Bio
 
 - Exectution: 
     - sbatch pipeline/1_full_af.sh name_id sequence
     - sbatch pipeline/2_MSA-Transformer_reps_dist.sh
-    - TO BE DONE: sbatch pipeline/3_cluster_AF.sh
+    - sbatch pipeline/3_cluster_AF.sh
     - TO BE DONE: sbatch pipeline/4_results_analysis.sh (avoid gromacs, maybe biopython pdb parser is enough)
 
 - Sanity checks:
