@@ -2,6 +2,8 @@ import random
 import os
 import sys
 
+random.seed(42)
+
 def parse_fasta(file):
     """Parse a FASTA file into sequence names and sequences."""
     with open(file, 'r') as f:

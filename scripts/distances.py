@@ -1,7 +1,6 @@
 import numpy as np
 import os
 import sys
-import random
 from sklearn.metrics.pairwise import pairwise_distances
 
 name = str(sys.argv[1])
