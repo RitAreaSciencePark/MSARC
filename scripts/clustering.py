@@ -38,7 +38,11 @@ maxxclust, nodes = search_minsize_clustering(dista)
 def save_clusters_to_fasta(nodes, clu_out, msa_file):
     # Read the full MSA sequences from the fasta file
     seqs = {record.id: str(record.seq) for record in SeqIO.parse(msa_file, "fasta")}
-
+    
+    with open(msa_file, 'r') as infile:
+        header = infile.readline().strip()  
+        sequence = infile.readline().strip()
+    
     clusters = list(set(nodes))  
     for c in clusters:
         indices = [i for i, x in enumerate(nodes) if x == c]
@@ -46,6 +50,8 @@ def save_clusters_to_fasta(nodes, clu_out, msa_file):
         # Save the clustered sequences to separate FASTA files
         if sub_seqs:
             with open(clu_out + f"cluster_{c}.fasta", 'w') as out_file:
+                out_file.write(header + '\n')
+                out_file.write(sequence + '\n')
                 for i, seq in enumerate(sub_seqs):
                     out_file.write(f">{ids[indices[i]]}\n{seq}\n")
 
