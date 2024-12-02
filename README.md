@@ -1,7 +1,6 @@
 # MSARC
 Code for clustering MSA representations to drive AF2 predictions toward alternative states.
 
-**Step 1**
 - Requirements: 
     - localcolabfold (to install from [localcolabfold-github](https://github.com/YoshitakaMo/localcolabfold))
 
