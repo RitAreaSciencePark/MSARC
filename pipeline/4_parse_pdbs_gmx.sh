@@ -6,7 +6,8 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-name=$1
+name_in=$1
+name="${name_in%/}"
 path=$name"/AF_clusters" # path_to_input_files (AF pdbs)
 output=$name"/gmx_traj" # output directory
 

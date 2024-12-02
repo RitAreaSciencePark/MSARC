@@ -1,19 +1,9 @@
 #!/bin/bash
 
-#SBATCH --partition=DGX
-#SBATCH --job-name=af
-#SBATCH --nodes=1
-#SBATCH --gpus-per-task=1
-#SBATCH --ntasks=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=50
-#SBATCH --mem-per-cpu=2g
-#SBATCH --time=12:00:00
 
-
-
-name=$1
-sequence=$2
+name_in=$(echo "$1")
+name="${name_in%/}"
+sequence=$(echo "$2" | tr -cd 'A-Za-z') 
 
 # create input/output directories
 seq_dir=$name'/sequence_files/'
@@ -21,9 +11,10 @@ out_dir=$name"/AF_full/"
 mkdir -p $out_dir
 mkdir -p $seq_dir
 
-# create query sequency
-echo ">"$name > $seq_dir'query.fasta'
-echo $sequence >> $seq_dir'query.fasta'
+
+# create query sequence
+echo ">$name" > $seq_dir'query.fasta'
+echo "$sequence"  >> $seq_dir'query.fasta'
 
 # launch ColabFold (AF2) with query sequence
 colabfold_batch  --amber --num-recycle 3 --num-relax 5 --num-models 5 --use-gpu-relax --msa-mode mmseqs2_uniref_env $seq_dir'query.fasta' $out_dir

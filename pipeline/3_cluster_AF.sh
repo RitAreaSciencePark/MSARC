@@ -1,20 +1,7 @@
 #!/bin/bash
 
-#SBATCH --partition=DGX
-#SBATCH --job-name=clustersAF
-#SBATCH --nodes=1
-#SBATCH --gpus-per-task=1
-#SBATCH --ntasks=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=50
-#SBATCH --mem-per-cpu=2g
-#SBATCH --time=12:00:00
-
-#source /orfeo/scratch/area/cuturellof/basic/bin/activate
-source /u/area/vpiomponi/scratch/env_dgx/bin/activate
-export PATH="/u/area/vpiomponi/scratch/localcolabfold/colabfold-conda/bin:$PATH"
-
-name=$1        
+name_in=$1        
+name="${name_in%/}"
 
 python scripts/clustering.py $name
 
