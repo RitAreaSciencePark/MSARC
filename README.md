@@ -2,7 +2,7 @@
 Code for clustering MSA representations to drive AF2 predictions toward alternative states.
 
 - Requirements: 
-    - localcolabfold (to install from [localcolabfold-github](https://github.com/YoshitakaMo/localcolabfold))
+    - localcolabfold (please follow the installation guidelines: [localcolabfold-github](https://github.com/YoshitakaMo/localcolabfold))
 
 - Installation:
     - python -m venv conformer
@@ -11,7 +11,8 @@ Code for clustering MSA representations to drive AF2 predictions toward alternat
 
 - Input Format:  
     The input file "input_file_name" must be a txt file containing the list of input ids and sequences in space separated format: "id sequence".
-    Example:    
+    Example:
+    
     my_prot1 ABCDEFGH  
     my_prot2 ILMNPQRS
 
