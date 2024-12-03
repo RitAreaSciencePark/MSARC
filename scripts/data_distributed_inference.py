@@ -144,7 +144,6 @@ def prepare_inference(gpu, args):
     for i in range(len(msa_loader)):
         msa, filename, nseq, idxs = next(msa_loader_iter)
         fn = filename[filename.find('msa'):]
-        print(fn)
                 
         try:
             msa_batch_labels, msa_batch_strs, msa_batch_tokens = msa_batch_converter(msa)  
@@ -156,7 +155,7 @@ def prepare_inference(gpu, args):
         
         if (msa_batch_tokens.size()[2] <=1024):
             try:
-                name = fn.partition('/')[2]
+                name = fn.rsplit("/", 1)[-1]
                 print(name)
                 
                 msa = msa_transformer.forward(msa_batch_tokens, repr_layers=[12], return_contacts=True)
@@ -171,6 +170,7 @@ def prepare_inference(gpu, args):
             except:
                   fprob = open(os.path.join(resdir,"problems_inference"+str(rank)), "w")
                   fprob.write(fn+"\n")
+                  print(traceback.format_exc())
         else:
             flong = open(os.path.join(resdir,"too_longMSAS"+str(rank)), "w")
             flong.write(fn+"\n") 
