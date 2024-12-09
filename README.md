@@ -19,5 +19,7 @@ Code for clustering MSA representations to drive AF2 predictions toward alternat
 - Exectution: 
     - sbatch launch.sh input_file_name 
 
-- Sanity checks:
+- Missing things:
     - TO BE DONE compare with dbscan and no_reps/reps clustering
+    - DCA analysis code
+    - change code to: read input files from a folder. Add checks that the input file exists and is in right format. Send all outputs to a folder called 'output'
