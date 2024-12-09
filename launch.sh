@@ -23,13 +23,13 @@ proteins=($(cat 'input_files/'$input_file | awk '{print $1}'))
 
 for name in "${proteins[@]}"
 do
-#	seq=$(grep "$name" 'input_files/'$input_file | awk '{print $2}')
+	seq=$(grep "$name" 'input_files/'$input_file | awk '{print $2}')
 	
-#	bash pipeline/1_full_af.sh $name $seq
+	bash pipeline/1_full_af.sh $name $seq
 
-#	srun bash pipeline/2_MSA-Transformer_reps_dist.sh $name 
+	srun bash pipeline/2_MSA-Transformer_reps_dist.sh $name 
 
-#	bash pipeline/3_cluster_AF.sh $name
+	bash pipeline/3_cluster_AF.sh $name
 	
 	python scripts/rmsd_from_full_AF.py $name
 
