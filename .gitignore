@@ -1,5 +1,5 @@
 output_files/*
-results_figures
+figures
 predictions_analysis.ipynb
 check_reps_sampling/KB/reps_MSATransformer/*
 check_reps_sampling/KB/msa_splits/*
