@@ -28,7 +28,6 @@ do
 
 	bash pipeline/3_cluster_AF.sh $name
 
-	bash pipeline/4_parse_pdbs_gmx.sh $name
 done
 
 date
