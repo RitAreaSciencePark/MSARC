@@ -6,15 +6,16 @@ import sys
 import numpy as np
 
 name = sys.argv[1]
-dista = np.load(name + '/reps_MSATransformer/dist.npy')
-reps = np.load(name + '/reps_MSATransformer/all_reps.npy')
-ids = np.load(name + '/reps_MSATransformer/all_ids.npy')
+base_path = 'output_files/'
+dista = np.load(base_path + name + '/reps_MSATransformer/dist.npy')
+reps = np.load(base_path + name + '/reps_MSATransformer/all_reps.npy')
+ids = np.load(base_path + name + '/reps_MSATransformer/all_ids.npy')
 
-clu_out = name + "/clusters/"
+clu_out = base_path + name + "/clusters/"
 if not os.path.exists(clu_out):
     os.makedirs(clu_out)
 
-msa_file = name + '/sequence_files/full_MSA.fasta'
+msa_file = base_path + name + '/sequence_files/full_MSA.fasta'
 
 def search_minsize_clustering(dista, min_size=20):
 

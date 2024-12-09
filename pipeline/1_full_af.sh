@@ -6,8 +6,8 @@ name="${name_in%/}"
 sequence=$(echo "$2" | tr -cd 'A-Za-z') 
 
 # create input/output directories
-seq_dir=$name'/sequence_files/'
-out_dir=$name"/AF_full/"
+seq_dir='output_files/'$name'/sequence_files/'
+out_dir='output_files/'$name"/AF_full/"
 mkdir -p $out_dir
 mkdir -p $seq_dir
 

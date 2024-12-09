@@ -4,7 +4,7 @@ import sys
 from sklearn.metrics.pairwise import pairwise_distances
 
 name = str(sys.argv[1])
-out_dir = name + '/reps_MSATransformer/'
+out_dir = 'output_files/' + name + '/reps_MSATransformer/'
 
 
 def collect_reps_ids(out_dir):

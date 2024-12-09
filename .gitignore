@@ -1,12 +1,6 @@
+output_files/*
 results_figures
 predictions_analysis.ipynb
-1M14
-KB
-Mad2
-RfaH
-P0*
-P1*
-pdb_*
 check_reps_sampling/KB/reps_MSATransformer/*
 check_reps_sampling/KB/msa_splits/*
 check_reps_sampling/Mad2/reps_MSATransformer/*

@@ -64,8 +64,8 @@ def shuffle_and_split(names, seqs, output_dir, limit=16000):
 def main():
     # Get the input file and output directory from the command-line arguments
     name = str(sys.argv[1])
-    input_file = f'{name}/sequence_files/full_MSA.fasta'
-    output_dir = f'{name}/sequence_files/msa_split'
+    input_file = 'output_files/'+name+'/sequence_files/full_MSA.fasta'
+    output_dir = 'output_files/'+name+'/sequence_files/msa_split'
 
     # Parse the MSA file to get names and sequences
     names, seqs = parse_fasta(input_file)
