@@ -18,8 +18,6 @@ Code for clustering MSA representations to drive AF2 predictions toward alternat
 
 - Exectution: 
     - sbatch launch.sh input_file_name 
-    - TO BE DONE: avoid gromacs at last step of pipeline (maybe biopython is enough?)
 
 - Sanity checks:
     - TO BE DONE compare with dbscan and no_reps/reps clustering
-    - TO BE DONE check reps dist varying MSA subsampling
