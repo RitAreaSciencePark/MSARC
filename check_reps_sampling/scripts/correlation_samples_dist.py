@@ -48,7 +48,7 @@ def order_matrices(matrices, ids_merg):
         triu_ids = np.triu_indices(ordered_matrix.shape[0], k=1) 
         ordered.append(ordered_matrix[triu_ids].flatten())
 
-    return ordered[:30]
+    return ordered
 
 
 def compute_spearman(args):
