@@ -10,7 +10,7 @@
 #SBATCH --mem-per-cpu=2g
 #SBATCH --time=50:00:00
 
-# INSTALL MULTIPROCESS IN VALE'S
+
 source /u/area/vpiomponi/scratch/env_dgx/bin/activate
 
 names=($(cat ../the_3input_proteins | awk '{print $1}'))
