@@ -1,0 +1,2 @@
+RfaH mean Spearmanr: 0.7140295981991833 std Spearmanr: 0.012576256704882065
+
