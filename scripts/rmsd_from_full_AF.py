@@ -7,14 +7,16 @@ import pandas as pd
 import mdtraj as md
 import matplotlib.pyplot as plt
 
-def calculate_rmsd_mda(path_clusters, pdb_ref_path, high_ids):
+def calculate_rmsd_mda(output, pdb_ref_path, high_ids, sorted_clu_ids):
 
     clusters = []
 
-    for filename in os.listdir(path_clusters):
-        if filename.startswith('clus') and filename.endswith('.pdb'):
-            cluster = md.load(os.path.join(path_clusters, filename))
-            clusters.append(cluster)
+    for file_label in sorted_clu_ids:
+        num = file_label.partition('_')[2]
+        filename = 'clus' + num
+        cluster = md.load(os.path.join(output, filename+".pdb"))
+        clusters.append(cluster)
+    
     trajectory = clusters[0]
     for cluster in clusters[1:]:
         trajectory += cluster
@@ -57,7 +59,7 @@ def main(name):
         plddt.append(plddt_val)
         size.append(count_sequences_in_fasta(path_msa))
 
-    rmsd = calculate_rmsd_mda(output, ref_pdb, high_ids)
+    rmsd = calculate_rmsd_mda(output, ref_pdb, high_ids, sorted_clu_ids)
 
     np.save(output+'rmsd.npy', rmsd)
     np.save(output+'plddt.npy', plddt)
@@ -110,7 +112,7 @@ def max_size_alternative_cluster(name, ids, rmsd, plddt, size):
     max_clu, max_rmsd, max_plddt = None, None, None
     for i, id_clu in enumerate(ids):
         
-        if rmsd[i] > 0.5 and plddt[i] > 65: # customize based on system
+        if rmsd[i] > 0.5 and plddt[i] > 60: # customize based on system
             
             if size[i] > maxx:
                 maxx = size[i]
