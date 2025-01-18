@@ -13,7 +13,7 @@
 
 source /u/area/vpiomponi/scratch/env_dgx/bin/activate
 
-names=($(cat ../the_3input_proteins | awk '{print $1}'))
+names=($(cat ../input_files/systems | awk '{print $1}' | head -n 3))
 
 for name in "${names[@]}"
 do
