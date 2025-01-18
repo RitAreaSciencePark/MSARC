@@ -19,8 +19,3 @@ Code for clustering MSA representations to drive AF2 predictions toward alternat
 - Exectution: 
     - sbatch launch.sh input_file_name 
 
-- Missing things:
-    - TO BE DONE compare with dbscan and no_reps/reps clustering
-    - DCA analysis code. !!!!! HELL INSTALLATION
-    - Add checks that the input file exists in right path and right format
-    - Add flag to scripts/rmsd_... to choose rmsd threshold for producing output_files/my_prot/results/max_size_alternative_cluster.csv
