@@ -39,7 +39,7 @@ all_msa, _ = collect_reps_ids(out_dir)
 all_msa = all_msa.reshape(all_msa.shape[0],-1)
 all_msa_scaled = (all_msa - all_msa.mean()) / all_msa.std() 
 
-dist = pairwise_distances(all_msa_scaled, all_msa_scaled, metric='euclidean', n_jobs=-1)
+dist = pairwise_distances(all_msa_scaled, metric='euclidean', n_jobs=-1)
 np.save(out_dir + 'dist.npy', dist)
 
 
