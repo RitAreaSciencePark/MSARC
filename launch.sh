@@ -13,19 +13,17 @@
 date
 
 source ../basic/bin/activate
-# matplotlib. mdtraj??
 #source /u/area/vpiomponi/scratch/env_dgx/bin/activate
 
 input_file=$1
 
 proteins=($(cat 'input_files/'$input_file | awk '{print $1}'))
-# ADD CHECK FOR INPUT 
 
 for name in "${proteins[@]}"
 do
 	seq=$(grep "$name" 'input_files/'$input_file | awk '{print $2}')
 	
-	bash pipeline/1_full_af.sh $name $seq
+	bash pipeline/1_full_af.sh $name  $seq
 
 	srun bash pipeline/2_MSA-Transformer_reps_dist.sh $name 
 
