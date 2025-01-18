@@ -3,7 +3,8 @@
 Installation:  
   - conda create -n dca_env python=3.5.2  
   - conda activate dca_env  
-  - pip install pydca  
+  - pip install pydca
+  
 Execution:
   - bash launch.sh input_file
 
