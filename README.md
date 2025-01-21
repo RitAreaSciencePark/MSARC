@@ -4,6 +4,10 @@ Code for clustering MSA representations to drive AF2 predictions toward alternat
 - Requirements: 
     - localcolabfold (please follow the installation guidelines: [localcolabfold-github](https://github.com/YoshitakaMo/localcolabfold))
 
+Our pipeline was implemented with the followig python version:
+$> python3 --version
+Python 3.10.12
+
 - Installation:
     - python -m venv conformer
     - source conformer/bin/activate
