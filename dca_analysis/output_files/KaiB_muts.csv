@@ -1,3 +1,5 @@
 i,j,query,pair,cluster  id
+54,87,('K' ,  'D'),('Q' ,  'D'),cluster_21
+11,80,('A' ,  'E'),('A' ,  'D'),cluster_24
+70,77,('R' ,  'S'),('K' ,  'S'),cluster_21
 31,67,('E' ,  'P'),('H' ,  'E'),cluster_21
-9,77,('Y' ,  'S'),('F' ,  'A'),cluster_24

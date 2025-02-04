@@ -1,7 +1,9 @@
 i,j,query,pair,cluster  id
+56,66,('L' ,  'G'),('I' ,  'G'),cluster_1
+58,207,('D' ,  'P'),('D' ,  'G'),cluster_1
 64,207,('F' ,  'P'),('Y' ,  'G'),cluster_1
 58,213,('D' ,  'A'),('N' ,  'G'),cluster_3
 59,167,('V' ,  'E'),('Y' ,  'K'),cluster_7
 209,323,('H' ,  'N'),('G' ,  'I'),cluster_4
+59,65,('V' ,  'Y'),('V' ,  'F'),cluster_4
 60,166,('A' ,  'V'),('Q' ,  'G'),cluster_1
-69,171,('E' ,  'I'),('S' ,  'V'),cluster_22
