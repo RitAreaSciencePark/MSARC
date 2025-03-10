@@ -24,13 +24,19 @@ def search_minsize_clustering(dista,  min_size=20):
     maxxclust, clusters = None, None
     many_clusters = int(dista.shape[0] / 10) # start from very high number of clusters
     for maxx in range(many_clusters, 2, -1):
+        
         nodes = list(fcluster(Z, maxx, criterion="maxclust"))
-        for n in nodes:
+        unique_nodes = list(set(nodes))
+        sample_counts = 0
+        for n in unique_nodes:
             # stop when all clusters size is above minimum
-            if nodes.count(n) < min_size:
+            if nodes.count(n) > min_size:
                 maxxclust = maxx
                 clusters = nodes
-                break
+                sample_counts += 1
+        if sample_counts == len(unique_nodes):
+            break
+
     return maxxclust, clusters
 
 maxxclust, nodes = search_minsize_clustering(dista)
