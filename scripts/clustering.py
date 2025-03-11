@@ -17,7 +17,7 @@ if not os.path.exists(clu_out):
 
 msa_file = base_path + name + '/sequence_files/full_MSA.fasta'
 
-def search_minsize_clustering(dista, min_size=20):
+def search_minsize_clustering(dista, min_size=19):
 
     dist = squareform(dista)
     Z = ward(dist)

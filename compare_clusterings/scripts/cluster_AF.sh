@@ -1,7 +1,7 @@
 #!/bin/bash
 
 name_in=$1        
-name="${name_in%/}"
+name_id="${name_in%/}"
 method=$2
 
 input="output_files/"$name"/"$method"/"
@@ -28,4 +28,4 @@ do
         awk '{ if ($12 != "H" ) print $0 }' $path"cluster_$i/cluster_${i}_relaxed_rank_001"* > $output"clus$i.pdb"
 done
 
-python scripts/rmsd_from_full_AF.py $name $method
+python scripts/rmsd_from_full_AF.py $name_id $method
