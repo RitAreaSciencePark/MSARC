@@ -1,4 +1,4 @@
-This folder contains all prameter files, topologies, and script needed to reproduce the AFEC simulations.
+This folder contains all parameter files, topologies, and script needed to reproduce the AFEC simulations.
 
 The starting strucure pmx_p67e.pdb was obtained merging to pdbs:
 
