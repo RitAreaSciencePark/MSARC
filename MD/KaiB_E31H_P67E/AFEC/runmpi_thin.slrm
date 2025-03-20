@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name=gromacs_test  # jobname
+#SBATCH --partition=EPYC
+#SBATCH --time=24:00:00          # walltime
+#SBATCH --nodes=4                # number of nodes
+#SBATCH --ntasks-per-node=12     # MPI tasks per single node
+#SBATCH --cpus-per-task=10        # number of CPUs per MPI task
+#SBATCH --error myJob.err        # std-error file
+#SBATCH --output myJob.out       # std-output file
+#-------------------------------------------------------------------------
+FOLDER=${PWD##*/}
+cd $SLURM_SUBMIT_DIR
+module purge
+#module load gromacs/2018.4
+module use /u/area/vpiomponi/.local/modules/
+module load gromacs/2022.5
+export GMXLIB=/u/area/vpiomponi/.local/programs/pmx/src/pmx/data/mutff
+#******************************************
+#******************  MD *******************
+#******************************************
+#export GMXLIB=./forcefields
+mpirun -npernode 12 --bind-to none gmx_mpi mdrun -ntomp 10 -s md.tpr -cpi state.cpt  -nsteps 500000 -replex 100 -multidir lam{?,??} 
