@@ -1,0 +1,39 @@
+#!/bin/bash
+#SBATCH --job-name=gromacs_test  # jobname
+#SBATCH --partition=EPYC
+#SBATCH --time=12:00:00          # walltime
+#SBATCH --nodes=1                # number of nodes
+#SBATCH --ntasks-per-node=1     # MPI tasks per single node
+#SBATCH --cpus-per-task=64       # number of CPUs per MPI task
+#SBATCH --error myJob.err        # std-error file
+#SBATCH --output myJob.out       # std-output file
+#-------------------------------------------------------------------------
+FOLDER=${PWD##*/}
+cd $SLURM_SUBMIT_DIR
+module purge
+#module load gromacs/2018.4
+module use /u/area/vpiomponi/.local/modules/
+module load gromacs/2022.5
+export GMXLIB=/u/area/vpiomponi/.local/programs/pmx/src/pmx/data/mutff
+#******************************************
+#******************  MD *******************
+#******************************************
+
+
+
+for i in {0..7}
+do
+
+
+gmx_mpi grompp -f minim_lam_$i.mdp -c ../conf_solv_ions.gro -p ../topol.top -o minim$i.tpr
+gmx_mpi mdrun -v -deffnm minim$i
+
+gmx_mpi grompp -f em_lam_$i.mdp -c minim$i.gro -p ../topol.top -o em$i.tpr
+gmx_mpi  mdrun -v -deffnm em$i
+gmx_mpi grompp -f nvt_lam_$i.mdp -c em$i.gro -r em$i.gro -p ../topol.top -o nvt$i.tpr
+gmx_mpi mdrun -v -deffnm nvt$i
+gmx_mpi grompp -f npt_lam_$i.mdp -c nvt$i.gro -r nvt$i.gro -p ../topol.top -o npt$i.tpr  
+gmx_mpi mdrun -v -deffnm npt$i
+
+done
+#gmx_mpi mdrun -ntomp 32 -s md.tpr -nsteps 500000

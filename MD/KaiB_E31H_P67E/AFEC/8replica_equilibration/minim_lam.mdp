@@ -1,0 +1,36 @@
+; minim.mdp - used as input into grompp to generate em.tpr
+; Parameters describing what to do, when to stop and what to save
+integrator  = steep         ; Algorithm (steep = steepest descent minimization)
+emtol       = 1000.0        ; Stop minimization when the maximum force < 1000.0 kJ/mol/nm
+emstep      = 0.01          ; Minimization step size
+nsteps      = 50000         ; Maximum number of (minimization) steps to perform
+; Parameters describing how to find the neighbors of each atom and how to calculate the interactions
+nstlist         = 1         ; Frequency to update the neighbor list and long range forces
+cutoff-scheme   = Verlet    ; Buffered neighbor searching
+ns_type         = grid      ; Method to determine neighbor list (simple, grid)
+coulombtype     = PME       ; Treatment of long range electrostatic interactions
+rcoulomb        = 1.0       ; Short-range electrostatic cut-off
+rvdw            = 1.0       ; Short-range Van der Waals cut-off
+pbc             = xyz       ; Periodic Boundary Conditions in all 3 dimensions (edited) 
+; Free energy control stuff
+free_energy              = yes
+init_lambda_state        = 0
+delta_lambda             = 0
+calc_lambda_neighbors    = 1        ; only immediate neighboring windows
+;couple-moltype           = Methane  ; name of moleculetype to decouple
+;couple-lambda0           = vdw      ; only van der Waals interactions
+;couple-lambda1           = none     ; turn off everything, in this case only vdW
+;couple-intramol          = no
+; Vectors of lambda specified here
+; Each combination is an index that is retrieved from init_lambda_state for each simulation
+; init_lambda_state        0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   
+; init_lambda_state        0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   
+vdw_lambdas              = 0.00   0.07  0.20  0.4  0.6  0.8  0.93   1.00 
+coul_lambdas             = 0.00   0.07  0.20  0.4  0.6  0.8  0.93   1.00
+; We are not transforming any bonded or restrained interactions
+bonded_lambdas           = 0.00   0.07  0.20  0.4  0.6  0.8  0.93   1.00  
+restraint_lambdas        = 0.00   0.07  0.20  0.4  0.6  0.8  0.93   1.00 
+; Masses are not changing (particle identities are the same at lambda = 0 and lambda = 1)
+mass_lambdas             = 0.00   0.07  0.20  0.4  0.6  0.8  0.93   1.00 
+; Not doing simulated temperting here
+temperature_lambdas      = 0.00   0.07  0.20  0.4  0.6  0.8  0.93   1.00 
