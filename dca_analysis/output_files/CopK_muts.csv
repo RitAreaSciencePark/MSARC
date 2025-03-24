@@ -1,4 +1,5 @@
-i,j,query,pair,cluster  id
-42,60,('K' ,  'F'),('H' ,  'W'),cluster_6
-40,60,('E' ,  'F'),('K' ,  'M'),cluster_5
-42,60,('K' ,  'F'),('T' ,  'M'),cluster_5
+i,j,query,pair,cluster  id,freq_diff
+42,60,('K' ,  'F'),('H' ,  'W'),cluster_5,0.6240619416319237
+40,60,('E' ,  'F'),('K' ,  'M'),cluster_4,0.3552356628743905
+42,60,('K' ,  'F'),('T' ,  'M'),cluster_4,0.3382865103320177
+50,64,('T' ,  'E'),('K' ,  'E'),cluster_5,0.13299583085169744

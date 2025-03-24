@@ -1,3 +1,3 @@
-i,j,query,pair,cluster  id
-6,11,('L' ,  'G'),('T' ,  'I'),cluster_8
-10,138,('Q' ,  'A'),('K' ,  'G'),cluster_9
+i,j,query,pair,cluster  id,freq_diff
+109,117,('K' ,  'P'),('G' ,  'D'),cluster_9,0.17053514973846065
+15,23,('R' ,  'E'),('H' ,  'A'),cluster_5,0.028894434131645413

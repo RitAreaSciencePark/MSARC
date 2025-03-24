@@ -14,12 +14,12 @@ Python 3.10.12
     - pip install -f requirements.txt 
 
 - Input Format:  
-    The input file "input_file_name" must be a txt file containing the list of input ids and sequences in space separated format: "id sequence".
+    The input file "input_file_name" must be placed in the input_files folder and it should be a txt file containing the list of input ids and sequences in space separated format: "id sequence".
     Example:
     
     my_prot1 ABCDEFGH  
     my_prot2 ILMNPQRS
 
-- Exectution: 
+- Execution: 
     - sbatch launch.sh input_file_name 
 
