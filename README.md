@@ -11,7 +11,7 @@ Python 3.10.12
 - Installation:
     - python -m venv conformer
     - source conformer/bin/activate
-    - pip install -f requirements.txt 
+    - pip install -r requirements.txt 
 
 - Input Format:  
     The input file "input_file_name" must be placed in the input_files folder and it should be a txt file containing the list of input ids and sequences in space separated format: "id sequence".
