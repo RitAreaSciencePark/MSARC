@@ -12,8 +12,7 @@
 
 date
 
-source ../basic/bin/activate
-#source /u/area/vpiomponi/scratch/env_dgx/bin/activate
+source conformer/bin/activate
 
 input_file=$1
 

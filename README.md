@@ -20,6 +20,6 @@ Python 3.10.12
     my_prot1 ABCDEFGH  
     my_prot2 ILMNPQRS
 
-- Execution: 
+- Execution on a SLURM queue: 
     - sbatch launch.sh input_file_name 
 
