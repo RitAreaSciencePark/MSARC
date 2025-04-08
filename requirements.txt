@@ -49,9 +49,7 @@ scipy==1.14.1
 six==1.16.0
 sympy==1.13.1
 threadpoolctl==3.5.0
-torch==2.5.1+cu121
-torchaudio==2.5.1+cu121
-torchvision==0.20.1+cu121
+torch
 tqdm==4.67.0
 triton==3.1.0
 typing_extensions==4.9.0
