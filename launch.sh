@@ -12,7 +12,9 @@
 
 date
 
-source ../basic/bin/activate
+#export PATH="/path/to/your/localcolabfold/colabfold-conda/bin:$PATH"
+export PATH="/u/area/vpiomponi/source-codes/localcolabfold/colabfold-conda/bin:$PATH"
+source conformer/bin/activate
 #source /u/area/vpiomponi/scratch/env_dgx/bin/activate
 
 input_file=$1
@@ -26,7 +28,7 @@ do
 	bash pipeline/1_full_af.sh $name  $seq
 
 	srun bash pipeline/2_MSA-Transformer_reps_dist.sh $name 
-
+        
 	bash pipeline/3_cluster_AF.sh $name
 	
 	python scripts/rmsd_from_full_AF.py $name
