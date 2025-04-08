@@ -12,7 +12,6 @@
 
 date
 
-#export PATH="/path/to/your/localcolabfold/colabfold-conda/bin:$PATH"
 source conformer/bin/activate
 
 input_file=$1

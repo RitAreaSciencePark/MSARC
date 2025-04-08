@@ -1,2 +1,0 @@
-Mad2 mean Spearmanr: 0.8033470103926265 std Spearmanr: 0.013390424868247968
-
