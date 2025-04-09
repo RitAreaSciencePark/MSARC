@@ -2,7 +2,7 @@
 Code for clustering MSA representations to drive AF2 predictions toward alternative states.
 
 ### Requirements: 
-    - localcolabfold (please follow the installation guidelines: [localcolabfold-github](https://github.com/YoshitakaMo/localcolabfold))
+localcolabfold (please follow the installation guidelines: [localcolabfold-github](https://github.com/YoshitakaMo/localcolabfold))
  
 As far as CUDA is concerned, we tested the code with the following configuration
 
