@@ -111,9 +111,10 @@ def prepare_inference(gpu, args):
         if not os.path.exists(os.path.join(resdir,'ids')):
             os.makedirs(os.path.join(resdir,'ids'),exist_ok='True')
     
+    port = random.randint(8888, 10000)
     torch.distributed.init_process_group(
         backend = "nccl",
-        init_method ='tcp://'+args.ip+':8889',
+        init_method ='tcp://'+args.ip+':'+str(port),
         world_size = args.world_size,
         rank = rank)
     device = f"cuda:{gpu}"

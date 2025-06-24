@@ -7,7 +7,7 @@ import pandas as pd
 import mdtraj as md
 import matplotlib.pyplot as plt
 
-def calculate_rmsd_mda(output, pdb_ref_path, high_ids, sorted_clu_ids):
+def calculate_rmsd_mda(output, pdb_ref_path, sorted_clu_ids):
 
     clusters = []
 
@@ -30,9 +30,8 @@ def calculate_rmsd_mda(output, pdb_ref_path, high_ids, sorted_clu_ids):
             if len(columns) >= 4 and columns[2] == "N":
                 backbone_ref.append(index+1)
 
-    filters = high_ids
-    rmsd = md.rmsd(trajectory, pdb_ref, atom_indices=np.array(backbone_ref)[filters], ref_atom_indices=np.array(backbone_ref)[filters])
-
+    rmsd = md.rmsd(trajectory, pdb_ref, atom_indices=np.array(backbone_ref), ref_atom_indices=np.array(backbone_ref))
+    
     return rmsd
 
 def main(name):
@@ -55,11 +54,12 @@ def main(name):
 
         cluster_pdb = path_clusters + clu_id + '/' + [file for file in os.listdir(path_cluster) if '_relaxed_rank_001' in file][0]
 
-        plddt_val, high_ids = calculate_plddt(path_cluster, path_full)
+        plddt_val = calculate_plddt(path_cluster, path_full)
         plddt.append(plddt_val)
         size.append(count_sequences_in_fasta(path_msa))
 
-    rmsd = calculate_rmsd_mda(output, ref_pdb, high_ids, sorted_clu_ids)
+    rmsd = calculate_rmsd_mda(output, ref_pdb, sorted_clu_ids)
+    
 
     np.save(output+'rmsd.npy', rmsd)
     np.save(output+'plddt.npy', plddt)
@@ -81,9 +81,8 @@ def calculate_plddt(path_clusters, path_full):
 
     plddt_local = result_data['plddt']
     plddt_avg = np.mean(plddt_local)
-    high_ids = np.where(np.array(ref_data['plddt']) > 60)
 
-    return plddt_avg, high_ids
+    return plddt_avg
 
 def count_sequences_in_fasta(path_msa):
     sequence_count = int(sum(1 for _ in SeqIO.parse(path_msa, "fasta")))
@@ -112,7 +111,7 @@ def max_size_alternative_cluster(name, ids, rmsd, plddt, size):
     max_clu, max_rmsd, max_plddt = None, None, None
     for i, id_clu in enumerate(ids):
         
-        if rmsd[i] > 0.5 and plddt[i] > 60: # customize based on system
+        if rmsd[i] > 0. and plddt[i] > 0: # customize based on system
             
             if size[i] > maxx:
                 maxx = size[i]
