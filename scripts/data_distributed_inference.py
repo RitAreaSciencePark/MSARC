@@ -197,7 +197,8 @@ if __name__ == "__main__":
         if args.nodes == 1:
             args.ip = "127.0.0.1"
         else:
-            raise argparse.ArgumentError("If nodes > 1, ip can't be left None")
+            raise ValueError("If nodes > 1, --ip must be provided.")
+#            raise argparse.ArgumentError("If nodes > 1, ip can't be left None")
     
     args.world_size = args.gpus * args.nodes
     torch.multiprocessing.spawn(prepare_inference, nprocs=args.gpus, args = (args,))
