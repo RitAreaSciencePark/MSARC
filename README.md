@@ -1,4 +1,4 @@
-# MSARC
+# Evolutionary Constraints Guide AlphaFold2 Prediction of Alternative Conformations and Inform Rational Mutation Design
 Code for clustering MSA representations to drive AF2 predictions toward alternative states.
 
 ### Requirements: 
