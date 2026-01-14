@@ -20,6 +20,8 @@ Python 3.10.2
 The dependencies are listed in the `requirements.txt` file, obtained with pip freeze in th environement we used to test our code. The general packages needed to run the code are listed in 'packages.txt'.
 
 ### Installation:
+    - git clone https://github.com/RitAreaSciencePark/MSARC.git
+    - cd MSARC
     - python -m venv conformer
     - source conformer/bin/activate
     - pip install -r packages.txt 
