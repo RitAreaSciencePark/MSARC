@@ -129,4 +129,4 @@ name = str(sys.argv[1])
     
 ids, rmsd, plddt, size = main(name)
 max_size_alternative_cluster(name, ids, rmsd, plddt, size)
-
+plot(ids, rmsd, plddt, size, name)
